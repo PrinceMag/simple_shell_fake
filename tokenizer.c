@@ -12,7 +12,6 @@ char **tokenize(char *input) {
 	char delimiter[] = " \t";
 	size_t count, idx;
 
-	idx = 0;
 	count = get_tokens_count(input, delimiter);
 	argv = (char **)malloc(sizeof(char *) * count);
 	if (!argv)
@@ -21,6 +20,7 @@ char **tokenize(char *input) {
 	tmpStr = input;
 	token = strtok(tmpStr, delimiter);
 
+	idx = 0;
 	while (token)
 	{
 		argv[idx++] = token;

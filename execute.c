@@ -17,7 +17,7 @@ int execute(char **argv, char *full_cmd)
 		return (-1);
 	if (child_pid == 0) {
 		if (execve(full_cmd, argv, environ) == -1) {
-			_write_err(argv[0], " not found\n");
+			_write_err(argv[0], "An error occurred while executing -> ", argv[0]);
 			return (-100);
 		}
 		else

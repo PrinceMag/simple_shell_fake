@@ -37,11 +37,13 @@ int _strlen(char *str) {
 * Return: nothing
 */
 
-void _write_err(char *cmd, char *err)
+void _write_err(char *shell, char *err, char *cmd)
 {
-	write(STDERR_FILENO, "ALX : ", 6);
-	write(STDERR_FILENO, cmd, _strlen(cmd));
+	write(STDERR_FILENO, shell, _strlen(shell));
+	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, err, _strlen(err));
+	write(STDERR_FILENO, cmd, _strlen(cmd));
+	write(STDERR_FILENO, "\n", 1);
 }
 
 /**
@@ -77,6 +79,14 @@ char *_strcat(char *s1, char *s2)
 	cmd[i] = 0;
 	return (cmd);
 }
+
+/**
+ * get_tokens_count - count the length of tokens in 
+ * a string seperated by spaces or tabs
+ * @input: the string
+ * @delimiter: in most cases spaces
+ * Return: numbers of tokens
+*/
 int get_tokens_count(char *input, char *delimiter) {
 	int count = 1;
 	char *tmp_str;

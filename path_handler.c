@@ -28,8 +28,7 @@ char *path_handler(char *arg)
 		token = strtok(NULL, ":");
 	}
 	chdir(pwd);
-	free(path);
-	free(pwd);
+	_free(2, path, pwd);
 	return (cmd);
 }
 
