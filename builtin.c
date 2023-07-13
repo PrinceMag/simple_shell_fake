@@ -2,6 +2,16 @@
 
 #define FAILURE -1
 #define SUCCESS 1
+
+/**
+ * builtin - handle builtin commands like "exit"
+ * @args: array of tokens, contains the command and its
+ * argumemts
+ * @input: string given by the user
+ * Return: 1 On Success, -1 On failure
+ *
+*/
+
 int builtin(char **args, char *input)
 {
 	int i = 0;
@@ -11,13 +21,16 @@ int builtin(char **args, char *input)
 		{NULL, NULL},
 	};
 
-	while (builtin[i].cmd) {
-		if (strcmp(builtin[i].cmd, args[0]) == 0) {
-			if (strcmp(builtin[i].cmd, "exit") == 0) {
+	while (builtin[i].cmd)
+	{
+		if (strcmp(builtin[i].cmd, args[0]) == 0)
+		{
+			if (strcmp(builtin[i].cmd, "exit") == 0)
+			{
 				_free(2, args, input);
 			}
 			builtin[i].func();
-	  		return (SUCCESS);
+			return (SUCCESS);
 		}
 		i++;
 	}

@@ -7,7 +7,8 @@
 * Return: array contains the tokens
 */
 
-char **tokenize(char *input) {
+char **tokenize(char *input)
+{
 	char **argv, *tmpStr, *token;
 	char delimiter[] = " \t";
 	size_t count, idx;

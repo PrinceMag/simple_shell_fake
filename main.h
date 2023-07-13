@@ -14,12 +14,15 @@ extern char **environ;
 #define MAX_BUFFER 2048
 
 /**
- * builtin_t - struct that holds count of
+ * struct Builtin - struct that holds count of
  * built in command in shell;
+ * @cmd: name of the command
+ * @func: pointer to function
  */
-typedef struct {
+typedef struct Builtin
+{
 	char *cmd;
-	void(*func)(void);
+	void (*func)(void);
 } builtin_t;
 
 /* Main functions*/

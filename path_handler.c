@@ -32,12 +32,13 @@ char *path_handler(char *arg)
 	return (cmd);
 }
 
-/*
+/**
  * get_path - retrieve the path variable (PATH)
  * Return: string that needs to be freed.
- * */
+*/
 
-char *get_path() {
+char *get_path()
+{
 	unsigned int idx;
 	char *path;
 

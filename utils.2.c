@@ -10,12 +10,16 @@
  * Return: nothing
 */
 
-void _free(int count, ...) {
+void _free(int count, ...)
+{
 	va_list args;
 	int i;
+	char *ptr;
+
 	va_start(args, count);
-	for (i = 0; i < count; i++) {
-		char *ptr = va_arg(args, char *);
+	for (i = 0; i < count; i++)
+	{
+		*ptr = va_arg(args, char *);
 		free(ptr);
 	}
 	va_end(args);
@@ -26,7 +30,8 @@ void _free(int count, ...) {
  * _exit_ - exit
  * Return: nothing
  */
-void _exit_(void) {
+void _exit_(void)
+{
 	exit(0);
 }
 
@@ -34,9 +39,12 @@ void _exit_(void) {
  * _env_ - prints all the env variables
  * Return: nothing
 */
-void _env_(void) {
+void _env_(void)
+{
 	int i = 0;
-	while(environ[i]) {
+
+	while (environ[i])
+	{
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 		i++;
 	}

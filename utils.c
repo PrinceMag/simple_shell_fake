@@ -1,39 +1,47 @@
 #include "main.h"
 
-/*
- *_strlen_input - function that count the len of input given by 
+/**
+ * _strlen_input - function that count the len of input given by
  * the user.
  * @str: pointer to string containing the input
  * Return: length of input.
- * */
+*/
 
-int _strlen_input(char *str) {
+int _strlen_input(char *str)
+{
 	int len = 0;
-	while (*str != 10) {
+
+	while (*str != 10)
+	{
 		len++;
 		str++;
 	}
-	return len;
+	return (len);
 }
 
-/*
- *_strlen - implementation of the strlen
+/**
+ * _strlen - implementation of the strlen
  * @str: pointer to string
  * Return: length of string.
- * */
+*/
 
-int _strlen(char *str) {
+int _strlen(char *str)
+{
 	int len = 0;
-	while (*str != 0) {
+
+	while (*str != 0)
+	{
 		len++;
 		str++;
 	}
-	return len;
+	return (len);
 }
 
 /**
 * _write_err - replace printf
-* @str: pointer to str
+* @shell: shell name
+* @err: the err
+* @cmd: the command
 * Return: nothing
 */
 
@@ -47,9 +55,9 @@ void _write_err(char *shell, char *err, char *cmd)
 }
 
 /**
-* _strcat - replace strcat from <string.h>
-* @dest: destination string
-* @src: source string
+* _strcat - implementation of strcat from <string.h>
+* @s1: string
+* @s2: string
 * Return: pointer to string
 */
 
@@ -81,13 +89,14 @@ char *_strcat(char *s1, char *s2)
 }
 
 /**
- * get_tokens_count - count the length of tokens in 
+ * get_tokens_count - count the length of tokens in
  * a string seperated by spaces or tabs
  * @input: the string
  * @delimiter: in most cases spaces
  * Return: numbers of tokens
 */
-int get_tokens_count(char *input, char *delimiter) {
+int get_tokens_count(char *input, char *delimiter)
+{
 	int count = 1;
 	char *tmp_str;
 
@@ -97,5 +106,5 @@ int get_tokens_count(char *input, char *delimiter) {
 		if (delimiter[0] == *(tmp_str++) || delimiter[1] == *(tmp_str++))
 			count++;
 	}
-	return count++;
+	return (count++);
 }
